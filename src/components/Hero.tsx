@@ -1,18 +1,18 @@
-import { Flame, MessageCircle, ShoppingCart } from 'lucide-react';
+import { MessageCircle, ShoppingCart } from 'lucide-react';
 
 export default function Hero() {
   const whatsappNumber = "5511999999999";
   const mercadoLivreUrl = "https://www.mercadolivre.com.br";
 
   return (
-    <section className="relative min-h-screen flex items-center justify-center bg-gradient-to-br from-zinc-900 via-black to-zinc-900 overflow-hidden">
-      <div className="absolute inset-0 bg-[url('https://images.pexels.com/photos/1656663/pexels-photo-1656663.jpeg?auto=compress&cs=tinysrgb&w=1920')] bg-cover bg-center opacity-20"></div>
+    <section id="inicio" className="relative min-h-screen flex items-center justify-center bg-gradient-to-br from-zinc-900 via-black to-zinc-900 overflow-hidden">
+      <div className="absolute inset-0 bg-[url('/hero_bg3.jpg')] bg-cover bg-center opacity-30"></div>
 
       <div className="absolute inset-0 bg-gradient-to-t from-black via-black/50 to-transparent"></div>
 
       <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center py-20">
-        <div className="inline-block mb-6">
-          <Flame className="w-16 h-16 text-yellow-500 animate-pulse" />
+        <div className="inline-block mb-2">
+          <img src="/logo.png" alt="Nobre Lenha Logo" className="w-40 h-auto drop-shadow-[0_0_10px_rgba(234,179,8,0.2)] hover:scale-105 transition-transform duration-300" />
         </div>
 
         <h1 className="text-5xl sm:text-6xl lg:text-7xl font-bold text-white mb-6 leading-tight">

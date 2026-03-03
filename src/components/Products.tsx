@@ -10,7 +10,7 @@ export default function Products({ onProductClick }: ProductsProps) {
   const mercadoLivreUrl = "https://www.mercadolivre.com.br";
 
   return (
-    <section className="py-20 bg-zinc-950">
+    <section id="produtos" className="py-20 bg-zinc-950">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-16">
           <h2 className="text-4xl sm:text-5xl font-bold text-white mb-4">

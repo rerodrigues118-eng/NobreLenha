@@ -1,4 +1,4 @@
-import { Flame, Instagram, Facebook, Mail } from 'lucide-react';
+import { Instagram, Facebook, Mail } from 'lucide-react';
 
 export default function Footer() {
   return (
@@ -6,9 +6,9 @@ export default function Footer() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-8">
           <div>
-            <div className="flex items-center gap-2 mb-4">
-              <Flame className="w-8 h-8 text-yellow-500" />
-              <span className="text-2xl font-bold text-white">Nobre Lenha</span>
+            <div className="flex items-center gap-3 mb-4">
+              <img src="/logo.png" alt="Nobre Lenha Logo" className="w-16 h-auto" />
+              <span className="text-2xl font-bold text-white tracking-tight">Nobre Lenha</span>
             </div>
             <p className="text-gray-400 leading-relaxed">
               Produtos premium para seu churrasco perfeito. Qualidade, tradição e excelência em cada brasa.

@@ -3,6 +3,11 @@ export interface Specification {
   value: string;
 }
 
+export interface Variant {
+  name: string;
+  description: string;
+}
+
 export interface Product {
   id: number;
   name: string;
@@ -15,6 +20,8 @@ export interface Product {
   specs: Specification[];
   details: string;
   usage: string;
+  images?: string[];
+  variants?: Variant[];
 }
 
 export const products: Product[] = [
@@ -26,26 +33,27 @@ export const products: Product[] = [
     details: "Fabricado a partir de madeira nobre selecionada, este carvão vegetal passa por rigoroso controle de qualidade. Seu poder calorífico é incomparável, mantendo temperatura estável por mais tempo. Perfeito para churrascarias, restaurantes e eventos em geral.",
     usage: "Ideal para churrasqueiras com grelha móvel, churrasqueiras de tambor, fornos de pizza e lareiras. Use aproximadamente 2-3 kg para uma sessão de churrasco de 4 pessoas.",
     benefits: ["Longa duração (até 3 horas)", "Calor intenso e uniforme", "Baixa produção de fumaça", "Sem aditivos químicos", "Sustentável e ecológico"],
-    image: "https://images.pexels.com/photos/1878885/pexels-photo-1878885.jpeg?auto=compress&cs=tinysrgb&w=800",
+    image: "/carvao/principal.jpg",
+    images: ["/carvao/principal.jpg", "/carvao/detalhe1.jpg", "/carvao/detalhe2.jpg", "/carvao/detalhe3.jpg"],
     category: "carvao",
     price: 49.90,
     specs: [
-      { label: "Peso", value: "5 kg" },
+      { label: "Peso", value: "4 kg" },
       { label: "Material", value: "Carvão vegetal 100%" },
       { label: "Poder Calorífico", value: "8000 kcal/kg" },
       { label: "Origem", value: "Brasil" },
-      { label: "Apresentação", value: "Saco de 5 kg" }
+      { label: "Apresentação", value: "Saco de 4 kg" }
     ]
   },
   {
     id: 2,
-    name: "Lenha Selecionada",
+    name: "Lenha Shoda",
     shortDescription: "Lenha de primeira qualidade, seca e pronta para uso, ideal para fornos e churrasqueiras.",
     description: "Lenha premium 100% seca, selecionada manualmente para garantir máxima qualidade. Ideal para fornos de pizza, churrasqueiras abertas e lareiras. Oferece aroma especial e queima uniforme, elevando a experiência do seu churrasco.",
     details: "Proveniente de reflorestamento sustentável, nossa lenha passa por secagem natural em ambiente controlado. Cada tora é inspecionada para garantir uniformidade e qualidade. O teor de umidade é inferior a 18%, garantindo queima eficiente.",
     usage: "Use em fornos de pizza, churrasqueiras abertas e lareiras. Para um forno de pizza, recomendamos começar com 3-4 toras. Mantenha a lenha em local seco e coberto.",
     benefits: ["Secagem natural", "Queima uniforme", "Aroma tradicional", "Sem tratamento químico", "Sustentável"],
-    image: "https://images.pexels.com/photos/3560156/pexels-photo-3560156.jpeg?auto=compress&cs=tinysrgb&w=800",
+    image: "/lenha/shoda.jpg",
     category: "lenha",
     price: 89.90,
     specs: [
@@ -56,42 +64,33 @@ export const products: Product[] = [
       { label: "Apresentação", value: "Feixe de 10 kg" }
     ]
   },
-  {
-    id: 3,
-    name: "Briquetes de Alta Performance",
-    shortDescription: "Briquetes compactados com alto poder calorífico e queima prolongada.",
-    description: "Briquetes eco-friendly fabricados com serragem prensada. Oferecem desempenho superior ao carvão comum, com queima mais limpa e eficiente. Perfeitos para quem busca economia e sustentabilidade.",
-    details: "Produzidos a partir de resíduos de madeira, nossos briquetes não contêm aglutinantes químicos. São compactados sob alta pressão para garantir durabilidade máxima. Ideal para churrasqueiras, fornos e aquecimento.",
-    usage: "Use 1,5-2 kg de briquetes para uma sessão de 2-3 horas. Empilhe os briquetes formando pirâmide para melhor circulação de ar e queima uniforme.",
-    benefits: ["Queima 50% mais tempo que carvão", "Zero resíduos tóxicos", "Econômico e sustentável", "Fácil armazenamento", "Sem poeira"],
-    image: "https://images.pexels.com/photos/1709528/pexels-photo-1709528.jpeg?auto=compress&cs=tinysrgb&w=800",
-    category: "briquete",
-    price: 59.90,
-    specs: [
-      { label: "Peso", value: "8 kg" },
-      { label: "Composição", value: "100% serragem de madeira" },
-      { label: "Poder Calorífico", value: "9200 kcal/kg" },
-      { label: "Tempo de Queima", value: "3-4 horas por unidade" },
-      { label: "Apresentação", value: "Caixa com 8 kg" }
-    ]
-  },
+
   {
     id: 4,
-    name: "Sal Temperado Especial",
-    shortDescription: "Blend exclusivo de sal com temperos selecionados para realçar o sabor da sua carne.",
-    description: "Mistura refinada de sal marinho com especiarias selecionadas manualmente. Fórmula exclusiva Nobre Lenha que realça o sabor natural das carnes, criando uma crosta perfeita e suculenta.",
-    details: "Nosso sal temperado combina sal marinho grão grosso com temperos naturais de primeira qualidade. Sem conservantes ou aditivos artificiais. Cada dose é calibrada para potencializar o sabor sem exagero.",
-    usage: "Aplique generosamente sobre a carne cerca de 30 minutos antes de colocar na grelha. Use aproximadamente 5-8 gramas por quilograma de carne. Ideal para picanha, costela e alcatra.",
-    benefits: ["Receita exclusiva Nobre Lenha", "Ingredientes naturais premium", "Versatilidade de uso", "Sabor profissional garantido", "Sem MSG ou conservantes"],
-    image: "https://images.pexels.com/photos/1340116/pexels-photo-1340116.jpeg?auto=compress&cs=tinysrgb&w=800",
+    name: "Sais Temperados Especiais",
+    shortDescription: "Blends exclusivos de sais com temperos selecionados para realçar o sabor da sua carne.",
+    description: "Misturas refinadas de sal marinho com especiarias selecionadas manualmente. Fórmulas exclusivas Nobre Lenha que realçam o sabor natural das carnes, criando uma crosta perfeita e suculenta.",
+    details: "Nossos sais temperados combinam sal marinho grão grosso com temperos naturais de primeira qualidade. Sem conservantes ou aditivos artificiais. Cada blend é calibrado para potencializar o sabor sem exagero.",
+    usage: "Aplique generosamente sobre a carne cerca de 30 minutos antes de colocar na grelha. Ideal para picanha, costela, alcatra e cortes especiais.",
+    benefits: ["Receitas exclusivas Nobre Lenha", "Ingredientes naturais premium", "Variedade de sabores", "Sabor profissional garantido", "Sem MSG ou conservantes"],
+    image: "/sais/principal_v2.jpg",
+    images: ["/sais/principal_v2.jpg", "/sais/detalhe_v2.jpg"],
     category: "sal",
     price: 29.90,
     specs: [
-      { label: "Peso", value: "500g" },
-      { label: "Tipo", value: "Sal marinho temperado" },
-      { label: "Ingredientes", value: "Sal, alho, pimenta, cominho, alecrim" },
+      { label: "Peso", value: "500g (cada)" },
+      { label: "Tipo", value: "Sais marinhos temperados" },
+      { label: "Opções", value: "Puro, Pimenta, Ervas Finas, Chimichurri, Alho, Defumado" },
       { label: "Validade", value: "24 meses" },
-      { label: "Apresentação", value: "Pote 500g" }
+      { label: "Apresentação", value: "Stand-up Pouch 500g" }
+    ],
+    variants: [
+      { name: "Sal Parrilla", description: "Sal de parrilla puro, o clássico indispensável para o churrasco perfeito." },
+      { name: "Sal com Pimenta", description: "Mistura balanceada que traz a picância ideal para realçar o sabor da carne." },
+      { name: "Sal com Chimichurri", description: "Inspirado no tradicional molho argentino, trazendo frescor e complexidade herbal." },
+      { name: "Sal com Alho", description: "O toque aromático do alho selecionado, perfeito para cortes bovinos e suínos." },
+      { name: "Sal Defumado", description: "Proporciona um sabor defumado natural e profundo, elevando a experiência gourmet." },
+      { name: "Sal com Ervas Finas", description: "Leve e aromático, ideal para carnes brancas, peixes ou vegetais na brasa." }
     ]
   },
   {
@@ -102,7 +101,8 @@ export const products: Product[] = [
     details: "Cada tábua é confeccionada individualmente em madeira de eucalipto tratado. Acabamento natural com óleo de castanha do Brasil, que além de proteger a madeira, oferece brilho e sofisticação. Possui canaleta para escoamento de líquidos.",
     usage: "Antes de usar pela primeira vez, limpe com água morna e seque bem. Para manutenção, limpe após cada uso e hidrate a madeira com óleo mineral a cada 3 meses. Não submergir em água.",
     benefits: ["Madeira nobre resistente", "Acabamento premium artesanal", "Durabilidade excepcional", "Design exclusivo", "Suporta peso variado"],
-    image: "https://images.pexels.com/photos/6605214/pexels-photo-6605214.jpeg?auto=compress&cs=tinysrgb&w=800",
+    image: "/tabuas/principal.jpg",
+    images: ["/tabuas/principal.jpg", "/tabuas/detalhe1.jpg", "/tabuas/detalhe2.jpg"],
     category: "tabua",
     price: 199.90,
     specs: [
@@ -140,7 +140,8 @@ export const products: Product[] = [
     details: "Fabricados em aço inoxidável de alta qualidade, cada espeto mede 85cm de comprimento. Alça ergonômica em madeira tratada oferece conforto e segurança. Pontas aguçadas facilitam a perfuração de carnes.",
     usage: "Pré-aqueça os espetos antes de usar para melhor resultado. Distribua a carne uniformemente para cozimento perfeito. Mantenha a rotação constante durante o cozimento. Ideal para picanha, frango e carnes vermelhas.",
     benefits: ["Aço inoxidável 304", "Resistente ao calor extremo", "Alça ergonômica confortável", "Kit com 6 unidades", "Durabilidade garantida"],
-    image: "https://images.pexels.com/photos/2233348/pexels-photo-2233348.jpeg?auto=compress&cs=tinysrgb&w=800",
+    image: "/espetos/principal.jpg",
+    images: ["/espetos/principal.jpg", "/espetos/detalhe1.jpg"],
     category: "espeto",
     price: 159.90,
     specs: [

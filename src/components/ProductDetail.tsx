@@ -48,19 +48,32 @@ export default function ProductDetail({ productId, onBack }: ProductDetailProps)
               </div>
             </div>
 
-            <div className="flex gap-4">
-              <button
-                onClick={() => setMainImage(product.image)}
-                className="w-20 h-20 bg-zinc-900 rounded-lg border-2 border-zinc-800 hover:border-yellow-500 transition-colors overflow-hidden"
-              >
-                <img src={product.image} alt="Produto" className="w-full h-full object-cover" />
-              </button>
-              <button
-                onClick={() => setMainImage(product.image)}
-                className="w-20 h-20 bg-zinc-900 rounded-lg border-2 border-zinc-800 hover:border-yellow-500 transition-colors flex items-center justify-center"
-              >
-                <Flame className="w-8 h-8 text-yellow-500" />
-              </button>
+            <div className="flex gap-4 overflow-x-auto pb-2 scrollbar-hide">
+              {product.images ? (
+                product.images.map((img, index) => (
+                  <button
+                    key={index}
+                    onClick={() => setMainImage(img)}
+                    className={`w-20 h-20 flex-shrink-0 bg-zinc-900 rounded-lg border-2 transition-all ${mainImage === img ? 'border-yellow-500 scale-105' : 'border-zinc-800 hover:border-yellow-500/50'
+                      } overflow-hidden`}
+                  >
+                    <img src={img} alt={`Produto ${index + 1}`} className="w-full h-full object-cover" />
+                  </button>
+                ))
+              ) : (
+                <>
+                  <button
+                    onClick={() => setMainImage(product.image)}
+                    className={`w-20 h-20 bg-zinc-900 rounded-lg border-2 ${mainImage === product.image ? 'border-yellow-500' : 'border-zinc-800'
+                      } overflow-hidden`}
+                  >
+                    <img src={product.image} alt="Produto" className="w-full h-full object-cover" />
+                  </button>
+                  <div className="w-20 h-20 bg-zinc-900 rounded-lg border-2 border-zinc-800 flex items-center justify-center opacity-50 grayscale">
+                    <Flame className="w-8 h-8 text-yellow-500" />
+                  </div>
+                </>
+              )}
             </div>
           </div>
 
@@ -125,6 +138,20 @@ export default function ProductDetail({ productId, onBack }: ProductDetailProps)
                 {product.details}
               </p>
             </div>
+
+            {product.variants && (
+              <div className="bg-gradient-to-br from-zinc-900 to-zinc-800 p-8 rounded-2xl border border-zinc-800 mb-8">
+                <h2 className="text-3xl font-bold text-white mb-6">Variedades de Sais</h2>
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
+                  {product.variants.map((variant, index) => (
+                    <div key={index} className="bg-black/20 p-4 rounded-xl border border-zinc-700/50 hover:border-yellow-500/30 transition-colors">
+                      <h3 className="text-yellow-500 font-bold mb-2">{variant.name}</h3>
+                      <p className="text-gray-400 text-sm leading-relaxed">{variant.description}</p>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            )}
 
             <div className="bg-gradient-to-br from-zinc-900 to-zinc-800 p-8 rounded-2xl border border-zinc-800">
               <h2 className="text-3xl font-bold text-white mb-6">Como Usar</h2>
